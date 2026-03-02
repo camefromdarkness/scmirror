@@ -1,0 +1,15 @@
+node_modules/
+dist/
+release/
+build/
+*.dmg
+*.exe
+*.msi
+*.appx
+.DS_Store
+*.log
+npm-debug.log*
+.env.local
+.env.*.local
+dist-electron/
+out/
