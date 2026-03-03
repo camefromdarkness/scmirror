@@ -1,6 +1,6 @@
 {
   "name": "soundcloud-mirror",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "SoundCloud Desktop Mirror",
   "main": "dist/main.js",
   "homepage": "./",
@@ -37,7 +37,7 @@
     },
     "mac": {
       "target": ["dmg", "zip"],
-      "icon": "assets/icon.icns",
+      "icon": "assets/icon.ico",
       "category": "public.app-category.music"
     },
     "win": {
@@ -47,7 +47,7 @@
           "arch": ["x64"]
         }
       ],
-      "icon": "assets/icon.ico"
+      "icon": "assets/ico.ico"
     },
     "nsis": {
       "oneClick": false,
