@@ -55,7 +55,7 @@ npm run dist:win
 
 
 ## Список domains zapret
-
+```
 a-v2.sndcdn.com
 api-auth.soundcloud.com
 api-v2.soundcloud.com
@@ -80,3 +80,4 @@ pagead2.googlesyndication.com
 api-v2.soundcloud.com
 ep2.adtrafficquality.google
 ep1.adtrafficquality.google
+```
