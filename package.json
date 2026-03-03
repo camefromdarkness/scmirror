@@ -1,55 +1,33 @@
 {
   "name": "soundcloud-mirror",
   "version": "1.0.0",
-  "description": "SoundCloud Desktop Mirror - веб-приложение SoundCloud в виде десктопного приложения",
+  "description": "SoundCloud Desktop Mirror",
   "main": "dist/main.js",
   "homepage": "./",
-  "author": "",
   "license": "MIT",
   "scripts": {
     "dev": "npm run build:electron && electron .",
-    "build": "npm run build:electron",
     "build:electron": "tsc --project tsconfig.electron.json",
-    "pack": "npm run build && electron-builder --dir",
+    "build": "npm run build:electron",
     "dist": "npm run build && electron-builder",
-    "dist:mac": "npm run build && electron-builder --mac",
     "dist:win": "npm run build && electron-builder --win",
-    "eject": "react-scripts eject"
+    "dist:mac": "npm run build && electron-builder --mac"
   },
   "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1"
+    "electron-is-dev": "^3.0.1"
   },
   "devDependencies": {
-    "@types/electron": "^1.6.10",
     "@types/node": "^20.0.0",
-    "@types/react": "^18.0.0",
-    "@types/react-dom": "^18.0.0",
-    "concurrently": "^8.2.0",
     "electron": "^27.0.0",
     "electron-builder": "^24.6.4",
-    "electron-is-dev": "^3.0.1",
-    "typescript": "^5.0.0",
-    "wait-on": "^7.0.0"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "typescript": "^5.0.0"
   },
   "build": {
     "appId": "com.soundcloud.mirror",
     "productName": "SoundCloud Mirror",
     "files": [
       "dist/**/*",
+      "assets/**/*",
       "node_modules/**/*",
       "package.json"
     ],
@@ -58,31 +36,18 @@
       "output": "release"
     },
     "mac": {
-      "target": [
-        "dmg",
-        "zip"
-      ],
-      "icon": "assets/icon.svg",
+      "target": ["dmg", "zip"],
+      "icon": "assets/icon.icns",
       "category": "public.app-category.music"
     },
     "win": {
       "target": [
         {
           "target": "nsis",
-          "arch": [
-            "x64"
-          ]
-        },
-        {
-          "target": "portable",
-          "arch": [
-            "x64"
-          ]
+          "arch": ["x64"]
         }
       ],
-      "icon": "assets/icon.svg",
-      "certificateFile": null,
-      "certificatePassword": null
+      "icon": "assets/icon.ico"
     },
     "nsis": {
       "oneClick": false,

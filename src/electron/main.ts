@@ -20,7 +20,7 @@ function createWindow() {
   // Загружаем SoundCloud напрямую
   mainWindow.loadURL('https://soundcloud.com');
 
-  mainWindow.webContents.openDevTools();
+  // mainWindow.webContents.openDevTools();
 
   mainWindow.on('closed', () => {
     mainWindow = null;

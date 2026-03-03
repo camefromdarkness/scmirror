@@ -25,23 +25,32 @@ jobs:
       - name: Build
         run: npm run build
       
-      - name: Build Mac
+      - name: Build for macOS
         if: runner.os == 'macOS'
         run: npm run dist:mac
       
-      - name: Build Windows
+      - name: Build for Windows
         if: runner.os == 'Windows'
         run: npm run dist:win
       
-      - name: Upload artifacts
+      - name: Upload macOS artifacts
+        if: runner.os == 'macOS'
         uses: actions/upload-artifact@v3
         with:
-          name: ${{ runner.os }}-builds
-          path: dist/
+          name: macos-builds
+          path: release/*.dmg
+      
+      - name: Upload Windows artifacts
+        if: runner.os == 'Windows'
+        uses: actions/upload-artifact@v3
+        with:
+          name: windows-builds
+          path: release/*.exe
       
       - name: Create Release
+        if: startsWith(github.ref, 'refs/tags/')
         uses: softprops/action-gh-release@v1
         with:
-          files: dist/**/*
+          files: release/*
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
